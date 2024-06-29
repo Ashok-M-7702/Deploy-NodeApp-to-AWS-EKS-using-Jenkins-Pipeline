@@ -41,7 +41,7 @@ pipeline {
      stage('Deploying Node App to Kubernetes') {
       steps {
         script {
-          sh ('eksctl create cluster --name test-app --nodegroup-name test-1 --node-type t3.micro --nodes 2')
+          sh ('eksctl create cluster --name test-app --nodegroup-name test-1 --node-type t3.micro --nodes 2 --region us-east-1')
           sh "kubectl get ns"
           sh "kubectl apply -f nodejsapp.yaml"
         }
